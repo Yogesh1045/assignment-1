@@ -1,0 +1,24 @@
+Compile-time polymorphism (overloading):
+    -> compiler chose calculateFee(int)
+    -> runtime executed PCar.ratePerHour()
+  car.calculateFee(130) = Rs 90.0
+    -> compiler chose calculateFee(LocalTime, LocalTime)
+    -> compiler chose calculateFee(int)
+    -> runtime executed PCar.ratePerHour()
+  car.calculateFee(09:00, 11:10) = Rs 90.0
+
+Runtime polymorphism - one array of PVehicle references (upcasting):
+  declared type PVehicle, actual type PTwoWheeler
+    -> compiler chose calculateFee(int)
+    -> runtime executed PTwoWheeler.ratePerHour()
+  fee = Rs 30.0
+  declared type PVehicle, actual type PCar
+    -> compiler chose calculateFee(int)
+    -> runtime executed PCar.ratePerHour()
+  fee = Rs 90.0
+  declared type PVehicle, actual type PElectricCar
+    -> compiler chose calculateFee(int)
+    -> runtime executed PElectricCar.ratePerHour()
+  fee = Rs 75.0
+
+instanceof alternative gives: 30.0, 90.0, 75.0
