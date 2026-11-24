@@ -1,0 +1,7 @@
+Object design   : TN004321 CAR entry 601
+Parallel arrays : TN004321 CAR entry 601
+
+Average search time over 20000 lookups, n = 5000 vehicles
+Vehicle[] linear search      :   7287.7 ns  O(n)
+Parallel arrays linear search:   8064.2 ns  O(n)
+HashMap<String,Vehicle>      :    149.8 ns  O(1) average
