@@ -1,0 +1,11 @@
+Type        Minutes  Fee(Rs)
+Car               0        0
+Car               1       30
+Car              60       30
+Car              61       50
+Car             130       70
+TwoWheeler      130       20
+Car            1440      300
+Car            1501      350
+EV              600      210
+Car 300 min with monthly pass -> Rs 0

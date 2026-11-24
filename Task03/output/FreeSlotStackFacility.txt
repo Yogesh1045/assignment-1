@@ -1,0 +1,10 @@
+[0, 0]
+[0, 1]
+[1, 0]
+null
+true false false
+[0, 1]
+
+Timing (5 floors x 100 slots, facility full except the last slot):
+Linear scan      :    268.5 ns per allocate
+Free-slot stacks :    117.1 ns per allocate
