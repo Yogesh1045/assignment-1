@@ -1,0 +1,20 @@
+Facility created, capacity 5
+08:00 ENTER  Ticket#1001 Car[TN01AA1111] VISITOR F0-S0 in 08:00
+08:15 ENTER  Ticket#1002 TwoWheeler[TN02BB2222] STUDENT(pass) F0-S1 in 08:15
+08:30 ENTER  Ticket#1003 ElectricCar[TN03CC3333] VISITOR F0-S2 in 08:30
+09:00 ENTER  Ticket#1004 TwoWheeler[TN04DD4444] VISITOR F1-S0 in 09:00
+09:05 ENTER  Ticket#1005 Car[TN05EE5555] STAFF(pass) F1-S1 in 09:05
+REJECTED  ENTER 09:10 CAR TN06FF6666 VISITOR NOPASS  -> Facility full - TN06FF6666 turned away
+REJECTED  ENTER 09:20 CAR TN01AA1111 VISITOR NOPASS  -> Duplicate registration already parked: TN01AA1111
+REJECTED  ENTER 09:30 BUS TN07GG7777 VISITOR NOPASS  -> Unknown vehicle type: BUS
+10:00 EXIT   TN01AA1111   pays Rs 60.00
+10:05 EXIT   TN04DD4444   pays Rs 20.00
+10:30 ENTER  Ticket#1006 Car[TN06FF6666] VISITOR F0-S0 in 10:30
+12:15 EXIT   TN03CC3333   pays Rs 360.00
+17:00 EXIT   TN02BB2222   pays Rs 0.00
+18:00 EXIT   TN05EE5555   pays Rs 0.00
+23:30 EXIT   TN06FF6666   pays Rs 300.00
+REJECTED  EXIT 23:45 TN99ZZ9999 0  -> No active ticket for TN99ZZ9999
+--------------------------------------------------
+Still parked      : 0
+Total collection  : Rs 740.00

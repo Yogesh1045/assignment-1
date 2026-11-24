@@ -1,0 +1,28 @@
+ID   Test case                                      Expected                     Actual                       Result
+N1   Car 130 min (3 started hours x 30)             90.0                         90.0                         PASS
+N2   TwoWheeler 130 min (3 x 10)                    30.0                         30.0                         PASS
+N3   EV 130 min + 10 kWh (90 + 120)                 210.0                        210.0                        PASS
+N4   Staff with monthly pass pays 0                 0.0                          0.0                          PASS
+N5   Exit frees the slot for the next car           [0, 0]                       [0, 0]                       PASS
+B1   Last free slot is allocated                    [1, 0]                       [1, 0]                       PASS
+B2   Facility full -> rejected                      IllegalStateException        IllegalStateException        PASS
+B3   Zero-minute parking                            0.0                          0.0                          PASS
+B4   Exactly 60 min (slab boundary)                 30.0                         30.0                         PASS
+B5   61 min starts the 2nd hour                     60.0                         60.0                         PASS
+B6   13 h capped at daily max 300                   300.0                        300.0                        PASS
+B7   Overnight 22:00 -> 01:00 (3 h)                 90.0                         90.0                         PASS
+B8   Ticket numbers are unique & increasing         true                         true                         PASS
+I1   Unknown vehicle type BUS                       IllegalArgumentException     IllegalArgumentException     PASS
+I2   Duplicate registration while parked            IllegalStateException        IllegalStateException        PASS
+I3   Release invalid slot (5, 0)                    false                        false                        PASS
+I4   Release a slot that is already free            false                        false                        PASS
+I5   Negative duration                              IllegalArgumentException     IllegalArgumentException     PASS
+I6   Invalid registration number                    IllegalArgumentException     IllegalArgumentException     PASS
+I7   Visitor claiming a monthly pass                IllegalArgumentException     IllegalArgumentException     PASS
+I8   Exit for a vehicle that is not parked          IllegalArgumentException     IllegalArgumentException     PASS
+I9   Charging a non-EV                              IllegalArgumentException     IllegalArgumentException     PASS
+I10  Rejected exit leaves the car parked            1                            1                            PASS
+O1   Car equals ElectricCar with same regNo         true                         true                         PASS
+O2   Equal objects -> equal hashCodes               true                         true                         PASS
+
+Passed 25 / 25
