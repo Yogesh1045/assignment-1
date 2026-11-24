@@ -1,0 +1,7 @@
+Total slots                    : 320
+jagged[3][7]                   : TN01AB1234
+flat[floorStart[3] + 7] = flat[127] : TN01AB1234
+list.get(3)[7]                 : TN01AB1234
+naive floor*20+slot = 67 -> null  (wrong slot: formula only works when all floors are equal)
+
+Locate a slot (avg of 10,000,000): jagged 3.56 ns | flat 5.00 ns | ArrayList 3.71 ns   (all O(1))
