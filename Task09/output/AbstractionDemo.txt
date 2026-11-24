@@ -1,0 +1,4 @@
+Car TN02B2 parking Rs 90.0 (Visitor)
+ElectricCar TN03C3 parking Rs 90.0 (Visitor) | charging 10 kWh x Rs 12.0 = Rs 120.0
+ElectricScooter TN04D4 parking Rs 0.0 (PassHolder) | charging 10 kWh x Rs 12.0 = Rs 60.0
+Payable.roundToRupee(89.6) = 90.0
