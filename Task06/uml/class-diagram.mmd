@@ -1,0 +1,76 @@
+classDiagram
+    direction TB
+    class Vehicle {
+        <<abstract>>
+        -String regNo
+        #Vehicle(String regNo)
+        +getRegNo() String
+        #ratePerHour()* double
+        #dailyMaximum() double
+        +calculateFee(int minutes) double
+        +calculateFee(LocalTime in, LocalTime out) double
+        +equals(Object o) boolean
+        +hashCode() int
+        +toString() String
+    }
+    class TwoWheeler {
+        +TwoWheeler(String regNo)
+        #ratePerHour() double
+    }
+    class Car {
+        +Car(String regNo)
+        #ratePerHour() double
+    }
+    class ElectricCar {
+        +ElectricCar(String regNo)
+        +chargingFee(int kWh) double
+    }
+    class Chargeable {
+        <<interface>>
+        +RATE_PER_KWH : double = 12
+        +chargingFee(int kWh) double
+        +validateKWh(int kWh)$ int
+    }
+    class ParkingTicket {
+        -int nextTicketNo$
+        -int ticketNo
+        -Vehicle vehicle
+        -UserCategory category
+        -boolean monthlyPass
+        -int floor
+        -int slot
+        -LocalTime entryTime
+        -LocalTime exitTime
+        -double fee
+        +close(LocalTime exit, double fee)
+    }
+    class UserCategory {
+        <<enumeration>>
+        STUDENT
+        STAFF
+        VISITOR
+        +canHoldMonthlyPass() boolean
+    }
+    class ParkingFacility {
+        -Vehicle[][] slots
+        -int occupied
+        +allocate(Vehicle v) int[]
+        +release(int floor, int slot) boolean
+        +capacity() int
+    }
+    class ParkingService {
+        -Map~String,ParkingTicket~ active
+        -double totalCollection
+        +enter(Vehicle, UserCategory, boolean, LocalTime) ParkingTicket
+        +exit(String regNo, LocalTime at, int kWh) double
+    }
+
+    Vehicle <|-- TwoWheeler
+    Vehicle <|-- Car
+    Car <|-- ElectricCar
+    Chargeable <|.. ElectricCar
+    ParkingTicket --> Vehicle : for
+    ParkingTicket --> UserCategory
+    ParkingFacility o-- Vehicle : slots hold
+    ParkingService --> ParkingFacility
+    ParkingService o-- ParkingTicket : active

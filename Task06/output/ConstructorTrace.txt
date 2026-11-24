@@ -1,0 +1,13 @@
+new ElectricCar("TN03C3", 40):
+  [static] Vehicle class loaded
+  [static] Car class loaded
+  [static] ElectricCar class loaded
+  1. Vehicle(regNo, wheels) runs  - sets regNo and wheels
+  2. Car(regNo) runs              - after Vehicle
+  3. ElectricCar(regNo, kWh) runs - after Car
+Result: ElectricCar TN03C3, 4 wheels, battery 40 kWh
+Fee 130 min (inherited calculateFee, Car's rate): Rs 90.0
+
+Composition alternative:
+TN02B2 CAR 130 min -> Rs 90.0
+TN09T9 TRUCK 130 min -> Rs 150.0
