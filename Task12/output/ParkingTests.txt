@@ -1,0 +1,41 @@
+ID   Test case                                      Expected                     Actual                       Result
+N1   Car 130 min (3 started hours x 30)             90.0                         90.0                         PASS
+N2   TwoWheeler 130 min (3 x 10)                    30.0                         30.0                         PASS
+N3   EV 130 min + 10 kWh (90 + 120)                 210.0                        210.0                        PASS
+N4   Staff with monthly pass pays 0                 0.0                          0.0                          PASS
+N5   Exit frees the slot for the next car           [0, 0]                       [0, 0]                       PASS
+B1   Last free slot is allocated                    [1, 0]                       [1, 0]                       PASS
+B2   Facility full -> rejected                      IllegalStateException        IllegalStateException        PASS
+B3   Zero-minute parking                            0.0                          0.0                          PASS
+B4   Exactly 60 min (slab boundary)                 30.0                         30.0                         PASS
+B5   61 min starts the 2nd hour                     60.0                         60.0                         PASS
+B6   13 h capped at daily max 300                   300.0                        300.0                        PASS
+B7   Overnight 22:00 -> 01:00 (3 h)                 90.0                         90.0                         PASS
+B8   Ticket numbers are unique & increasing         true                         true                         PASS
+I1   Unknown vehicle type BUS                       IllegalArgumentException     IllegalArgumentException     PASS
+I2   Duplicate registration while parked            IllegalStateException        IllegalStateException        PASS
+I3   Release invalid slot (5, 0)                    false                        false                        PASS
+I4   Release a slot that is already free            false                        false                        PASS
+I5   Negative duration                              IllegalArgumentException     IllegalArgumentException     PASS
+I6   Invalid registration number                    IllegalArgumentException     IllegalArgumentException     PASS
+I7   Visitor claiming a monthly pass                IllegalArgumentException     IllegalArgumentException     PASS
+I8   Exit for a vehicle that is not parked          IllegalArgumentException     IllegalArgumentException     PASS
+I9   Charging a non-EV                              IllegalArgumentException     IllegalArgumentException     PASS
+I10  Rejected exit leaves the car parked            1                            1                            PASS
+O1   Car equals ElectricCar with same regNo         true                         true                         PASS
+O2   Equal objects -> equal hashCodes               true                         true                         PASS
+T1   E-bike 4 h -> flat fee                         20.0                         20.0                         PASS
+T2   E-bike 0 min                                   0.0                          0.0                          PASS
+T3   E-bike 25 h -> 2 started days                  40.0                         40.0                         PASS
+T4   Van 07:30-10:30 (30+30+60)                     120.0                        120.0                        PASS
+T5   Van 13:00-18:00 (4x60 + 30)                    270.0                        270.0                        PASS
+T6   Van 08:59-09:59: hour starts off-peak          30.0                         30.0                         PASS
+T7   Van 16:59-17:59: hour starts in peak           60.0                         60.0                         PASS
+T8   Van all day capped at 600                      600.0                        600.0                        PASS
+T9   Visitor one-day pass: Rs 100 at gate, 0 at exit 100.0/0.0                    100.0/0.0                    PASS
+T10  Student buying a one-day pass                  IllegalArgumentException     IllegalArgumentException     PASS
+T11  Factory creates registered E_BIKE              EBike[TN11E1]                EBike[TN11E1]                PASS
+T12  5 floors {3,2,4,1,2}: 12th vehicle -> [4, 1]   [4, 1]                       [4, 1]                       PASS
+T13  13th vehicle on 12-slot facility               null                         null                         PASS
+
+Passed 38 / 38
