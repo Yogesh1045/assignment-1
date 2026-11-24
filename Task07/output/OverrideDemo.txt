@@ -1,0 +1,12 @@
+TwoWheeler[TN01A1] 130 min -> Rs 30.0
+Car[TN02B2] 130 min -> Rs 90.0
+ElectricCar[TN03C3] 130 min -> Rs 60.0
+
+a == b          : false
+a.equals(b)     : true
+same hashCode   : true
+HashSet rejects duplicate regNo: true
+Without hashCode the set holds : 2 'equal' vehicles (bug)
+
+Switch alternative gives the same fees: 30.0, 90.0, 60.0
+Per call: overriding 9.47 ns | switch 7.54 ns
