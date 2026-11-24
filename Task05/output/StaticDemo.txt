@@ -1,0 +1,8 @@
+main started
+[static block] rate table loaded once
+Static counter     : 1001 (NORTH), 1002 (SOUTH), 1003 (NORTH)  -> unique campus-wide
+Instance counter   : NORTH 1001, SOUTH 1001  -> SAME number at two gates (bug)
+Occupancy          : north=2 south=1 total(static)=3
+Tickets issued     : 3
+Closed ticket collected by GC? true
+Total occupancy after exit    : 2
