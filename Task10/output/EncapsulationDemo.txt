@@ -1,0 +1,15 @@
+Valid stay 130 min -> fee Rs 90
+REJECTED setMinutes(-15) -> Duration cannot be negative: -15
+   stay still holds 130 min (state protected)
+REJECTED new Stay(20000) -> Stay longer than 7 days: 20000
+REJECTED new ParkingSlot(7, 0, 20) -> Invalid floor 7 (0-4)
+REJECTED new ParkingSlot(0, 25, 20) -> Invalid slot 25 on floor 0
+REJECTED occupy an occupied slot -> Slot F0-S3 already holds TN01AB1111
+REJECTED free an already free slot -> Slot F0-S3 is already free
+
+Public field accepted minutes = -15 -> fee would be Rs 0 (silently wrong)
+
+Integer 127 == 127   : true   (cached objects)
+Integer 1000 == 1000 : false  (different objects!)
+c.equals(d)          : true   (compare values with equals)
+Unboxing a null Integer -> NullPointerException (checked before use in the system)
